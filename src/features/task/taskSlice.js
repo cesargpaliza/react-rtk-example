@@ -24,11 +24,18 @@ export const taskSlice = createSlice({
         //en RTK si se puede realizar esta accion
         //que seria similar a:
         //[...state, action.payload]
+    },
+    deleteTask: (state, action) => {      
+      const taskFound = state.find(task => task.id === action.payload)
+      if(taskFound){
+        state.splice(state.indexOf(taskFound), 1)
+      }
     }
+
   },
 })
 
 // Action creators are generated for each case reducer function
-export const { addTask } = taskSlice.actions
+export const { addTask, deleteTask } = taskSlice.actions
 
 export default taskSlice.reducer

@@ -29,6 +29,7 @@ const TaskForm = () => {
     <form onSubmit={handleSubmit}>
         <input name='title' type="text" placeholder='Título' onChange={handleChangue}></input>        
         <textarea name='description' placeholder='Descripcion'onChange={handleChangue}></textarea>
+        <button>Create</button>
     </form>
   )
 }
