@@ -1,4 +1,3 @@
-// eslint-disable-next-line
 import { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { addTask, editTask } from '../features/task/taskSlice'
@@ -53,10 +52,25 @@ const TaskForm = () => {
   
 
   return (
-    <form onSubmit={handleSubmit}>
-        <input name='title' type="text" placeholder='Título' onChange={handleChangue} value={task.title}></input>        
-        <textarea name='description' placeholder='Descripcion'onChange={handleChangue} value={task.description}></textarea>
-        <button>Create</button>
+    <form onSubmit={handleSubmit} className="bg-zinc-800 max-w-sm p-4">
+        <label htmlFor='title' className='block font-bold'>Title</label>
+        <input 
+            name='title' 
+            type="text" 
+            placeholder='Título' 
+            onChange={handleChangue} 
+            value={task.title}
+            className="w-full p-2 rounded-md bg-zinc-600 mb-2"
+        />
+        <label htmlFor='description' className='block font-bold'>Description</label>
+        <textarea 
+            name='description' 
+            placeholder='Descripcion'
+            onChange={handleChangue} 
+            value={task.description}
+            className="w-full p-2 rounded-md bg-zinc-600 mb-2"
+        ></textarea> 
+        <button className="bg-blue-400 hover:bg-blue-500 px-2 py-1 text-md rounded-md">Create</button>
     </form>
   )
 }
